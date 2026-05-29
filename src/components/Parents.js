@@ -504,23 +504,27 @@ return (
                                 />
                                 да<br/>
                             </div>
-                            <label>указать с какого</label>
-                            <input
-                            type="date"
-                            name="infertility.textb"
-                            value={JSON.parse(formData[fatherid]?.infertility || '{}')?.textb || '' }
-                            onChange={(e) => handleChangeCheckText(fatherid, 'infertility', 'textb', e.target.value)}
-                            required
-                            />
-                            <label>по какой</label>
-                            <input
-                            type="date"
-                            name="infertility.texte"
-                            value={JSON.parse(formData[fatherid]?.infertility || '{}')?.texte || '' }
-                            onChange={(e) => handleChangeCheckText(fatherid, 'infertility', 'texte', e.target.value)}
-                            required
-                            />
-                            <label>возрастной период</label>
+                            {(JSON.parse(formData[fatherid]?.infertility || '{}')?.id > 1) && (
+                                <div className="radio-group">
+                                    <label>указать с какого</label>
+                                    <input
+                                    type="number"
+                                    name="infertility.textb"
+                                    value={JSON.parse(formData[fatherid]?.infertility || '{}')?.textb || '' }
+                                    onChange={(e) => handleChangeCheckText(fatherid, 'infertility', 'textb', e.target.value)}
+                                    required
+                                    />
+                                    <label>по какой</label>
+                                    <input
+                                    type="number"
+                                    name="infertility.texte"
+                                    value={JSON.parse(formData[fatherid]?.infertility || '{}')?.texte || '' }
+                                    onChange={(e) => handleChangeCheckText(fatherid, 'infertility', 'texte', e.target.value)}
+                                    required
+                                    />
+                                    <label>возрастной период</label>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -1312,23 +1316,27 @@ return (
                                 />
                                 да<br/>
                             </div>
-                            <label>указать с какого</label>
-                            <input
-                            type="date"
-                            name="infertility.textb"
-                            value={JSON.parse(formData[motherid]?.infertility || '{}')?.textb || '' }
-                            onChange={(e) => handleChangeCheckText(motherid, 'infertility', 'textb', e.target.value)}
-                            required
-                            />
-                            <label>по какой</label>
-                            <input
-                            type="date"
-                            name="infertility.texte"
-                            value={JSON.parse(formData[motherid]?.infertility || '{}')?.texte || '' }
-                            onChange={(e) => handleChangeCheckText(motherid, 'infertility', 'texte', e.target.value)}
-                            required
-                            />
-                            <label>возрастной период</label>
+                            {(JSON.parse(formData[motherid]?.infertility || '{}')?.id > 1) && (
+                                <div className="radio-group">
+                                    <label>указать с какого</label>
+                                    <input
+                                    type="number"
+                                    name="infertility.textb"
+                                    value={JSON.parse(formData[motherid]?.infertility || '{}')?.textb || '' }
+                                    onChange={(e) => handleChangeCheckText(motherid, 'infertility', 'textb', e.target.value)}
+                                    required
+                                    />
+                                    <label>по какой</label>
+                                    <input
+                                    type="number"
+                                    name="infertility.texte"
+                                    value={JSON.parse(formData[motherid]?.infertility || '{}')?.texte || '' }
+                                    onChange={(e) => handleChangeCheckText(motherid, 'infertility', 'texte', e.target.value)}
+                                    required
+                                    />
+                                    <label>возрастной период</label>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
