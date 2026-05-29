@@ -31,6 +31,14 @@ const handleChange = (e) => {
     });
 };
 
+const handleChangeCheckT = (element, name) => {
+    const array = formData
+    array[name] = element
+    setFormData({
+        ...array
+    });
+};
+
 const handleSubmit = async (e) => {
     try {
     await axios.put(`/patients/${id}`, formData);
@@ -149,25 +157,28 @@ return (
                     className="policy-input"
                     />
                 </div>
-                <div className="radio-group">
-                    <label>Социальный статус(Нужное подчеркнуть)</label>
-                    <label>организованный - дошкольник, школьник, студент</label>
-                    <input
-                        type="checkbox"
-                        name="1"
-                        value="1"
-                        checked={(formData.social_status === 1)}
-                        onChange={handleChangeCheck}
-                    />
-                    <label>неорганизованный - домашнее воспитание, беспризорный</label>
-                    
-                    <input
-                        type="checkbox"
-                        name="2"
-                        value="0"
-                        checked={(formData.social_status !== 1)}
-                        onChange={handleChangeCheck}
-                    />
+                <div className="form-group">
+                    <label>Социальный статус:</label>
+                    <div className="radio-group-spec">
+                        <div className="form-group">
+                            <div className="radio-group">
+                                <input 
+                                type="radio" 
+                                value="организованный - дошкольник, школьник, студент" 
+                                checked={formData?.social_status=== 1} 
+                                onChange={() => handleChangeCheckT(1, 'social_status')}
+                                />
+                                Организованный - дошкольник, школьник, студент<br/>
+                                <input 
+                                type="radio" 
+                                value="неорганизованный - домашнее воспитание, беспризорный" 
+                                checked={formData?.social_status === 2} 
+                                onChange={() => handleChangeCheckT(2, 'social_status')}
+                                />
+                                Неорганизованный - домашнее воспитание, беспризорный<br/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="form-group">
